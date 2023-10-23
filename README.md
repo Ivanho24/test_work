@@ -18,17 +18,16 @@ sudo nano /etc/nginx/sites-available/myproject
 ```
 
 3. Вставьте следующую конфигурацию Nginx в файл `myproject`:
-
+```ini
 server {
     listen 80;
     server_name http://127.0.0.1; 
-
     location / {
         include uwsgi_params;
         uwsgi_pass unix:/path/to/your/project/socket.sock;  # Замените на путь к сокету вашего проекта
     }
 }
-
+```
 4. Сохраните файл и закройте его.
 
 5. Создайте символическую ссылку на созданный конфигурационный файл в директории `sites-enabled`:
@@ -105,8 +104,10 @@ http-timeout-keepalive = 86400
 http-timeout-keepalive = 86400
 http-timeout-keepalive = 86400
 http-timeout
-
+```
+4. Запуск тестового задания:
+```
 Перед запуском нужно через терминад ввести следующую команду:  service mysql start         
 Когда запустите, http://127.0.0.1:8000/upload/ это загрузки данных, http://127.0.0.1:8000/data/ для просмотра данных
-
+```
 
